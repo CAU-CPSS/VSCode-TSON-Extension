@@ -1,0 +1,31 @@
+{
+  "name": "tson",
+  "displayName": "TSON",
+  "description": "Syntax highlighting support for Time-Stamped JSON",
+  "version": "1.0.0",
+  "publisher": "Karu@Rolling Ress",
+  "icon": "./icons/tson-icon.png",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "tson",
+      "aliases": ["TSON", "tson"],
+      "extensions": [".tson"],
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./icons/tson.png",
+        "dark": "./icons/tson.png"
+      }
+    }],
+    "grammars": [{
+      "language": "tson",
+      "scopeName": "source.tson",
+      "path": "./syntaxes/tson.tmLanguage.json"
+    }]
+  }
+}

@@ -1,0 +1,118 @@
+{
+	"scopeName": "source.tson",
+	"name": "TSON",
+	"patterns": [
+	  	{ "include": "#tson" }
+	],
+	"repository": {
+		"tson": {
+			"patterns": [
+				{ "include": "#object" },
+				{ "include": "#array" },
+				{ "include": "#value" }
+			]
+		},
+		"object": {
+			"name": "meta.structure.dictionary.tson",
+			"begin": "\\{",
+			"beginCaptures": {
+				"0": { "name": "punctuation.definition.object.begin.tson" }
+			},
+			"end": "\\}",
+			"endCaptures": {
+				"0": { "name": "punctuation.definition.object.end.tson" }
+			},
+			"patterns": [
+				{ "include": "#members" }
+			]
+		},
+		"members": {
+			"patterns": [{
+				"name": "meta.pair.tson",
+				"begin": "(\"(?:[^\"\\\\]|\\\\.)*\")(?:\\s*(<\\d+>))?(?=\\s*:)",
+				"beginCaptures": {
+					"1": { "name": "support.type.property-name.tson" },
+					"2": { "name": "entity.name.type.tson" }
+				},
+				"end": "(?=\\s*:)",
+				"patterns": []
+			},
+			{
+				"match": ":",
+				"name": "punctuation.separator.key-value.tson"
+			},
+			{
+				"include": "#value"
+			},
+			{
+				"match": ",",
+				"name": "punctuation.separator.tson"
+			}]
+		},
+		"array": {
+			"name": "meta.structure.array.tson",
+			"begin": "\\[",
+			"beginCaptures": {
+				"0": { "name": "punctuation.definition.array.begin.tson" }
+			},
+			"end": "\\]",
+			"endCaptures": {
+				"0": { "name": "punctuation.definition.array.end.tson" }
+			},
+			"patterns": [
+				{ "include": "#elements" }
+			]
+		},
+		"elements": {
+			"patterns": [
+			{
+				"name": "meta.element.tson",
+				"begin": "(<\\d+>\\s*)?",
+				"beginCaptures": {
+					"0": { "name": "entity.name.type.tson" }
+				},
+				"end": "(?=,|\\])",
+				"patterns": [
+					{ "include": "#value" }
+				]
+			},
+			{
+				"match": ",",
+				"name": "punctuation.separator.tson"
+			}
+			]
+		},
+		"value": {
+			"patterns": [
+				{ "include": "#primitive" },
+				{ "include": "#object" },
+				{ "include": "#array" },
+				{
+					"match": "\\bnull\\b",
+					"name": "constant.language.null.tson"
+				},
+				{ "include": "#timestamp" }
+			]
+		},
+		"primitive": {
+			"patterns": [
+			{
+				"name": "string.quoted.double.tson",
+				"match": "\"(?:[^\"\\\\]|\\\\.)*\""
+			},
+			{
+				"name": "constant.numeric.tson",
+				"match": "-?\\b\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?\\b"
+			},
+			{
+				"name": "constant.language.boolean.tson",
+				"match": "\\b(?:true|false)\\b"
+			}
+			]
+		},
+		"timestamp": {
+			"name": "entity.name.type.tson",
+			"match": "<\\d+>"
+		}
+	}
+ }

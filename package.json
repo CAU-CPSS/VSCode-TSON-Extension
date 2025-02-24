@@ -2,7 +2,7 @@
   "name": "tson",
   "displayName": "TSON",
   "description": "Syntax highlighting support for Time-Stamped JSON",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "Karu@Rolling Ress",
   "icon": "./icons/tson-icon.png",
   "engines": {

@@ -29,7 +29,7 @@
 		"members": {
 			"patterns": [{
 				"name": "meta.pair.tson",
-				"begin": "(\"(?:[^\"\\\\]|\\\\.)*\")(?:\\s*(<\\d+>))?(?=\\s*:)",
+				"begin": "(\"(?:[^\"\\\\]|\\\\.)*\")(?:\\s*(<\\d*>))?(?=\\s*:)",
 				"beginCaptures": {
 					"1": { "name": "support.type.property-name.tson" },
 					"2": { "name": "entity.name.type.tson" }
@@ -67,7 +67,7 @@
 			"patterns": [
 			{
 				"name": "meta.element.tson",
-				"begin": "(<\\d+>\\s*)?",
+				"begin": "(<\\d*>\\s*)?",
 				"beginCaptures": {
 					"0": { "name": "entity.name.type.tson" }
 				},
@@ -112,7 +112,7 @@
 		},
 		"timestamp": {
 			"name": "entity.name.type.tson",
-			"match": "<\\d+>"
+			"match": "<\\d*>"
 		}
 	}
  }

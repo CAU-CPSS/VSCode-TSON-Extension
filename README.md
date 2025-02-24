@@ -1,4 +1,4 @@
-# tson README
+# TSON for VSCode
 
 TSON, which stands for Time-Stamped JSON, is derived from JSON with timestamp support.
 
@@ -8,10 +8,14 @@ This extension adds the support of highlighting TSON documents.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+*NOT FOUND*
 
 ## Release Notes
 
 ### 1.0.0
 
 Initial release of TSON extension.
+
+### 1.0.1
+
+Added support for empty timestamp `<>`.
